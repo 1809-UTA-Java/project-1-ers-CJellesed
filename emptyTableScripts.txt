@@ -1,0 +1,57 @@
+create table ERS_USERS (
+	U_ID NUMBER(*,0) primary key,
+	U_USERNAME varchar2(40 BYTE) NOT NULL unique,
+	U_PASSWORD varchar2(40 BYTE) not null,
+	U_FIRSTNAME varchar2(30 BYTE),
+	U_LASTNAME varchar2(30 BYTE),
+	U_EMAIL varchar2(100 BYTE) unique,
+	UR_ID NUMBER(*,0) not null
+)
+
+create table ERS_USER_ROLES (
+    UR_ID NUMBER(*,0) primary key,
+    UR_ROLE varchar2(40 BYTE)
+)
+
+alter table ERS_USERS add constraint FK_UR_ID
+foreign key (UR_ID)
+references ERS_USER_ROLES (UR_ID);
+
+create table ERS_REIMBURSEMENTS (
+    R_ID NUMBER(*,0) primary key,
+    R_AMOUNT NUMBER(22,2) not null,
+    R_DESCRIPTION varchar2(100 BYTE),
+    R_RECEIPT blob,
+    R_SUBMITTED timestamp not null,
+    R_RESOLVED timestamp,
+    U_ID_AUTHOR number(*,0) not null,
+    U_ID_RESOLVER number(*,0) not null,
+    RT_TYPE number(*,0) not null,
+    RT_STATUS number(*,0) not null
+)
+
+create table ERS_REIMBURSEMENTS_STATUS (
+    RS_ID NUMBER(*,0) primary key,
+    RS_STATUS varchar2(30 BYTE) not null
+)
+
+create table ERS_REIMBURSEMENTS_TYPE (
+    RT_ID number(*,0) primary key,
+    RT_TYPE varchar2(30 BYTE) not null
+)
+
+alter table ERS_REIMBURSEMENTS add constraint FK_U_ID_AUTHOR
+foreign key (U_ID_AUTHOR)
+references ERS_USERS (U_ID);
+
+alter table ERS_REIMBURSEMENTS add constraint FK_U_ID_RESOLVER
+foreign key (U_ID_RESOLVER)
+references ERS_USERS (U_ID);
+
+alter table ERS_REIMBURSEMENTS add constraint FK_RT_TYPE
+foreign key (RT_TYPE)
+references ERS_REIMBURSEMENTS_TYPE (RT_ID);
+
+alter table ERS_REIMBURSEMENTS add constraint FK_RT_STATUS
+foreign key (RT_STATUS)
+references ERS_REIMBURSEMENTS_STATUS (RS_ID);
