@@ -1,12 +1,33 @@
 package com.revature.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ERS_USERS")
 public class User {
+	@Id
+	@Column(name = "U_ID")
 	int id;
+	
+	@Column(name = "U_USERNAME")
 	String uName;
+	
+	@Column(name = "U_PASSWORD")
 	String password;
+	
+	@Column(name = "U_FIRSTNAME")
 	String fName;
+	
+	@Column(name = "U_LASTNAME")
 	String lName;
+	
+	@Column(name = "U_EMAIL")
 	String email;
+	
+	@Column(name = "UR_ID")
 	int urId;
 	
 	public int getId() {

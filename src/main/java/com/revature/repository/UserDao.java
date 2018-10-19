@@ -10,19 +10,22 @@ import com.revature.model.User;
 import com.revature.util.HibernateUtil;
 
 public class UserDao {
+	
 	public List<User> getUsers() {
 		Session session = HibernateUtil.getSession();
 		return session.createQuery("from ers_users").list();
 	}
 	
-	public User getUserByName(String aName) {
+	public User getUser(String uName, String password) {
 		User found = null;
 		List<User> users = new ArrayList<>();
 		Session session = HibernateUtil.getSession();
 		
 		users = session.createQuery(
-				"from ers_users where name = :nameVar")
-				.setString("nameVar", aName).list();
+				"from User where uName = :nameVar and password = :passVar")
+				.setString("nameVar", uName)
+				.setString("passVar", password)
+				.list();
 		if (!users.isEmpty()) {
 			found = users.get(0);
 		}
