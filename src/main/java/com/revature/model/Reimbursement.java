@@ -1,18 +1,24 @@
 package com.revature.model;
 
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ERS_REIMBURSEMENTS")
+@Table(name = "ers_reimbursements")
 public class Reimbursement {
 	@Id
 	@Column(name = "R_ID")
-	String id = "auto.nextval";
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auto")
+	@SequenceGenerator(name = "auto", sequenceName = "auto", allocationSize = 1, initialValue = 1)
+	Integer id;
 	
 	@Column(name = "R_AMOUNT")
 	double ammount;
@@ -24,19 +30,19 @@ public class Reimbursement {
 	byte[] Receipt;
 	
 	@Column(name = "R_SUBMITTED")
-	String submitted = "CURRENT_TIMESTAMP";
+	Timestamp submitted = new Timestamp(System.currentTimeMillis());
 	
 	@Column(name = "R_RESOLVED")
-	String resolved;
+	Timestamp resolved;
 	
 	@Column(name = "U_ID_AUTHOR")
 	Integer author;
 	
 	@Column(name = "U_ID_RESOLVER")
-	Integer resolver;
+	Integer resolver = -1;
 	
 	@Column(name = "RT_TYPE")
-	Integer type = 0;
+	Integer type;
 	
 	@Column(name = "RT_STATUS")
 	Integer status = 0;
@@ -48,11 +54,11 @@ public class Reimbursement {
 				+ author + ", resolver=" + resolver + ", type=" + type + ", status=" + status + "]";
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -80,19 +86,19 @@ public class Reimbursement {
 		Receipt = receipt;
 	}
 
-	public String getSubmitted() {
+	public Timestamp getSubmitted() {
 		return submitted;
 	}
 
-	public void setSubmitted(String submitted) {
+	public void setSubmitted(Timestamp submitted) {
 		this.submitted = submitted;
 	}
 
-	public String getResolved() {
+	public Timestamp getResolved() {
 		return resolved;
 	}
 
-	public void setResolved(String resolved) {
+	public void setResolved(Timestamp resolved) {
 		this.resolved = resolved;
 	}
 

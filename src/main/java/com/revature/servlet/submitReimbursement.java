@@ -22,6 +22,7 @@ public class submitReimbursement extends HttpServlet {
 		User user = (User) getServletContext().getAttribute("user");
 		Reimbursement item = new Reimbursement();
 		String ammount = "", description = "";
+		
 		ammount = req.getParameter("ammount");
 		description = req.getParameter("description");
 		String temp = req.getParameter("type");
@@ -29,13 +30,15 @@ public class submitReimbursement extends HttpServlet {
 		item.setAmmount(Double.parseDouble(ammount));
 		item.setAuthor(user.getId());
 		item.setDescription(description);
-		item.setId("auto.nextval");
-		item.setSubmitted("CURRENT_TIMESTAMP");
+		item.setType(type);
 
-//		PrintWriter pw = resp.getWriter();
-//		pw.print(item);
+		PrintWriter pw = resp.getWriter();
+		//pw.print(item);
 		reim.saveRequest(item);
 		getServletContext().setAttribute("item", item);
+		
+		RequestDispatcher rs = req.getRequestDispatcher("employee.html"); 
+        rs.forward(req, resp);
 	}
 	
 	@Override

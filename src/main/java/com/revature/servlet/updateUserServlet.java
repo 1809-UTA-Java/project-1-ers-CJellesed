@@ -3,6 +3,7 @@ package com.revature.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +48,9 @@ public class updateUserServlet extends HttpServlet {
 		//pw.print(user);
 		dao.updateUser(user);
 		getServletContext().setAttribute("user", user);
-
+		
+		RequestDispatcher rs = req.getRequestDispatcher("employee.html"); 
+        rs.forward(req, resp);
 	}
 	
 	@Override
