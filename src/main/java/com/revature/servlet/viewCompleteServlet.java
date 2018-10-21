@@ -22,7 +22,7 @@ public class viewCompleteServlet extends HttpServlet {
 		ReimbursementsDao dao = new ReimbursementsDao();
 		User user = (User) getServletContext().getAttribute("user");
 
-		items = dao.getReimbursements(user.getId(), 1);
+		items = dao.getReimbursements(user.getId(), user.getUrId(), 1 );
 		PrintWriter pw = resp.getWriter();
 		pw.print(items);
 	}

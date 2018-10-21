@@ -6,17 +6,20 @@
 	<body>
 		<h1>Manager Home</h1>
 		
-		<form action="http://localhost:8080/ERS/submit.html">
+		<form action="http://localhost:8080/ERS/approve.html">
 		    <input type="submit" value="Manage Requests" />
 		</form>
 		<form action="pending" method="post">
 			<button type="submit">Receipts</button>
 		</form>		
-		<form action="complete" method="post">
+		<form action="pending" method="post">
 			<button type="submit">Pending Requests</button>
 		</form>
-		<form action="employee" method="post">
+		<form action="complete" method="post">
 			<button type="submit">Complete Requests</button>
+		</form>
+		<form action="denied" method="post">
+			<button type="submit">Denied Requests</button>
 		</form>
 		<form action="employees" method="post">
 			<button type="submit">Employees</button>
