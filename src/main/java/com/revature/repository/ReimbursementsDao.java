@@ -6,7 +6,6 @@ import java.util.List;
 import org.hibernate.Session;
 
 import com.revature.model.Reimbursement;
-import com.revature.model.User;
 import com.revature.util.HibernateUtil;
 
 public class ReimbursementsDao {
@@ -27,9 +26,6 @@ public class ReimbursementsDao {
 					.setInteger("idStatus", status)
 					.list();
 		}
-//		if (!items.isEmpty()) {
-//			found = items.get(0);
-//		}
 		return items;
 	}
 	

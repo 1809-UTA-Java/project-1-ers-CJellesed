@@ -17,6 +17,7 @@ import com.revature.util.HibernateUtil;
 
 @WebServlet("/complete")
 public class viewCompleteServlet extends HttpServlet {
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Reimbursement> items;
 		ReimbursementsDao dao = new ReimbursementsDao();

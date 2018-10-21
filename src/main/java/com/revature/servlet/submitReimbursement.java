@@ -1,9 +1,6 @@
 package com.revature.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +14,7 @@ import com.revature.util.HibernateUtil;
 
 @WebServlet("/submit")
 public class submitReimbursement extends HttpServlet {
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ReimbursementsDao reim = new ReimbursementsDao();
 		User user = (User) getServletContext().getAttribute("user");
@@ -32,8 +30,6 @@ public class submitReimbursement extends HttpServlet {
 		item.setDescription(description);
 		item.setType(type);
 
-		PrintWriter pw = resp.getWriter();
-		//pw.print(item);
 		reim.saveRequest(item);
 		getServletContext().setAttribute("item", item);
 		

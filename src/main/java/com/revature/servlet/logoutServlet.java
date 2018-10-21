@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.revature.model.User;
-import com.revature.repository.UserDao;
 import com.revature.util.HibernateUtil;
 
 @WebServlet("/logout")
 public class logoutServlet extends HttpServlet {
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		User user = new User();
 		getServletContext().setAttribute("user", user);

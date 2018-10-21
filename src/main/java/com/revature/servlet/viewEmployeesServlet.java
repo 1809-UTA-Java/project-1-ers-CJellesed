@@ -20,6 +20,7 @@ public class viewEmployeesServlet extends HttpServlet {
 	List<User> users = new ArrayList<>();
 	UserDao dao = new UserDao();
 	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		users = dao.getUsers();
 		PrintWriter pw = resp.getWriter();

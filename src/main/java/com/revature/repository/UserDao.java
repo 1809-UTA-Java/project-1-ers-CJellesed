@@ -3,12 +3,7 @@ package com.revature.repository;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.Query;
-
 import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import com.revature.model.Reimbursement;
 import com.revature.model.User;
 import com.revature.util.HibernateUtil;
 
