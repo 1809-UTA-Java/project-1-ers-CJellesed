@@ -17,19 +17,6 @@ import com.revature.util.HibernateUtil;
 
 @WebServlet("/submit")
 public class submitReimbursement extends HttpServlet {
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//users = dao.getUsers();
-		//resp.setContentType("text/xml");
-		//ObjectMapper om = new XmlMapper();
-		//String obj = om.writeValueAsString(users);
-		//String obj = om.writeValueAsString(dao.getUserByName("employee"));
-		//PrintWriter pw = resp.getWriter();
-		//pw.print(obj);
-		//pw.close();
-	}
-	
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ReimbursementsDao reim = new ReimbursementsDao();
 		User user = (User) getServletContext().getAttribute("user");
@@ -48,24 +35,7 @@ public class submitReimbursement extends HttpServlet {
 //		PrintWriter pw = resp.getWriter();
 //		pw.print(item);
 		reim.saveRequest(item);
-		
-//		PrintWriter pw = resp.getWriter();
-//		if(getServletContext().getAttribute("user") == null)
-//			pw.print("null");
-//		else
-//			pw.print(getServletContext().getAttribute("user"));
-//			pw.println(ammount + description);
-			
-			
-		//pw.print("Here we are");
-//		if(user == null) {
-//			RequestDispatcher rs = req.getRequestDispatcher("index.html"); 
-//	        rs.forward(req, resp);		}
-//		else {
-//			RequestDispatcher rs = req.getRequestDispatcher("employee.html"); 
-//	        rs.forward(req, resp);
-//	    }
-
+		getServletContext().setAttribute("item", item);
 	}
 	
 	@Override

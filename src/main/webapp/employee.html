@@ -6,14 +6,18 @@
 	<body>
 		<h1>Employee Home</h1>
 		
+		<form action="http://localhost:8080/ERS/submit.html">
+		    <input type="submit" value="Submit Request" />
+		</form>
+		<form action="pending" method="post">
+			<button type="submit">Pending Reimbursement</button>
+		</form>		
+		<form action="complete" method="post">
+			<button type="submit">Complete Reimbursement</button>
+		</form>
 		<form action="employee" method="post">
 			<button type="submit">View User</button>
 		</form>
-		<form action="http://localhost:8080/ERS/submit.html">
-		    <input type="submit" value="Go to Google" />
-		</form>
-		<button type="button" onclick="alert('Test')">Reimbursement< </button>
-		<button type="button" onclick="alert('Test')">Completed< </button>
 		<form action="http://localhost:8080/ERS/updateuser.html">
 		    <input type="submit" value="Update User" />
 		</form>
