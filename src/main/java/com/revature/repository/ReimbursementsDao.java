@@ -10,7 +10,7 @@ import com.revature.model.User;
 import com.revature.util.HibernateUtil;
 
 public class ReimbursementsDao {
-	public Reimbursement getReim(int id) {
+	public Reimbursement getInfo(int id) {
 		Reimbursement found = null;
 		List<Reimbursement> items = new ArrayList<>();
 		Session session = HibernateUtil.getSession();

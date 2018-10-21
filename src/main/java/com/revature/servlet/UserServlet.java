@@ -37,8 +37,14 @@ public class UserServlet extends HttpServlet {
 		}
 		else {
 			getServletContext().setAttribute("user", user);
-			RequestDispatcher rs = req.getRequestDispatcher("employee.html"); 
-	        rs.forward(req, resp);
+			if(user.getUrId() == 1) {
+				RequestDispatcher rs = req.getRequestDispatcher("manager.html"); 
+		        rs.forward(req, resp);
+			}
+			else {
+				RequestDispatcher rs = req.getRequestDispatcher("employee.html"); 
+		        rs.forward(req, resp);
+			}	
 	    }
 	}	
 	

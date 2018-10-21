@@ -16,7 +16,7 @@ public class UserDao {
 	
 	public List<User> getUsers() {
 		Session session = HibernateUtil.getSession();
-		return session.createQuery("from ers_users").list();
+		return session.createQuery("from User").list();
 	}
 	
 	public User getUser(String uName, String password) {
@@ -34,7 +34,7 @@ public class UserDao {
 		}
 		return found;
 	}
-	
+		
 	public void updateUser(User a) {
 		Session session = HibernateUtil.getSession();
 		session.beginTransaction();
