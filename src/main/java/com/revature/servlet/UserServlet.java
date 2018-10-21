@@ -44,11 +44,11 @@ public class UserServlet extends HttpServlet {
 		User user = instance.getUser(name, password);
 
 		PrintWriter pw = resp.getWriter();
-		String action = req.getParameter("ACTION");
-	    if("test".equals(action)){
-            pw.print(user);
-        }
-	    else if(user == null) {
+		//String action = req.getParameter("ACTION");
+//	    if("test".equals(action)){
+//            pw.print(user);
+//        }
+	    if(user == null) {
 			RequestDispatcher rs = req.getRequestDispatcher("index.html"); 
 	        rs.forward(req, resp);
 		}

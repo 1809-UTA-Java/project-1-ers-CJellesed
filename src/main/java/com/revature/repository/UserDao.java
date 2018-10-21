@@ -3,9 +3,12 @@ package com.revature.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.management.Query;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.revature.model.Reimbursement;
 import com.revature.model.User;
 import com.revature.util.HibernateUtil;
 
@@ -32,11 +35,11 @@ public class UserDao {
 		return found;
 	}
 	
-	public int saveUser(User a) {
+	public void updateUser(User a) {
 		Session session = HibernateUtil.getSession();
-		Transaction tx = session.beginTransaction();
-		int result = (int) session.save(a);
-		tx.commit();
-		return result;
+		session.beginTransaction();
+		session.update(a);
+		session.getTransaction().commit();
 	}
+
 }

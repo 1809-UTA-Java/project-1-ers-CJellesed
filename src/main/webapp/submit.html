@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Submit</title>
+	</head>
+	<body>
+		<h1>Submit Reimbursement Request </h1>
+		
+		<!-- This POST will add the arguments to the body -->
+		<form action="submit" method="post">
+			<input type="text" name="ammount">
+			<input type="text" name="description" size="100">
+  			<input type="radio" name="type" value=0 checked> Travel<br>
+  			<input type="radio" name="type" value=1> Food<br>
+  			<input type="radio" name="type" value=2> Supplies
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>

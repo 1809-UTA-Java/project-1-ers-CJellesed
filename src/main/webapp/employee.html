@@ -7,13 +7,18 @@
 		<h1>Employee Home</h1>
 		
 		<form action="employee" method="post">
-			<button type="submit">Test</button>
+			<button type="submit">View User</button>
 		</form>
-		<button type="button" onclick="alert('Test')">Logout< </button>
+		<form action="http://localhost:8080/ERS/submit.html">
+		    <input type="submit" value="Go to Google" />
+		</form>
 		<button type="button" onclick="alert('Test')">Reimbursement< </button>
 		<button type="button" onclick="alert('Test')">Completed< </button>
-		<button type="button" onclick="alert('Test')">Logout< </button>
-		<button type="button" onclick="alert('Test')">Logout< </button>
-		
+		<form action="http://localhost:8080/ERS/updateuser.html">
+		    <input type="submit" value="Update User" />
+		</form>
+		<form action="logout" method="post">
+			<button type="submit">Logout</button>
+		</form>
 	</body>
 </html>

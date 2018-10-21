@@ -1,8 +1,6 @@
 package com.revature.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,18 +13,13 @@ import com.revature.model.User;
 import com.revature.repository.UserDao;
 import com.revature.util.HibernateUtil;
 
-@WebServlet("/employee")
-public class employeeServlet extends HttpServlet {
-	List<User> users;
-	UserDao dao = new UserDao();
-
-	
+@WebServlet("/logout")
+public class logoutServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		User user = (User) getServletContext().getAttribute("user");
-
-		PrintWriter pw = resp.getWriter();
-		pw.print(user);
-
+		User user = new User();
+		getServletContext().setAttribute("user", user);
+		RequestDispatcher rs = req.getRequestDispatcher("index.html"); 
+        rs.forward(req, resp);
 	}
 	
 	@Override
@@ -34,4 +27,3 @@ public class employeeServlet extends HttpServlet {
 		HibernateUtil.shutdown();
 	}
 }
-
